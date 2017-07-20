@@ -9,11 +9,11 @@
   <link rel="stylesheet" href="./public/css/index.css">
 
   <title>Data table</title>
-
 </head>
 
 <body>
   <div id="core_wrapper" class="dataTables_wrapper">
+
 
     <div class="dataTable_length">
       <label>
@@ -27,39 +27,28 @@
          entries
       </label>
     </div>
+    <div class="datasection">
+      
+      <div class=datatable>
+        <table>
+          <thead>
+            <tr class="title">
+              <th>Name</th>
+              <th class='titlePosition'>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+            </tr>
+          </thead>
+          <tbody>
+            <script type="text/javascript" src=./loaddata.js></script>
+          </tbody>
+        </table>
+      </div>
 
-    <table>
-      <thead>
-        <tr class="title">
-          <th>Name</th>
-          <th>Position</th>
-          <th>Office</th>
-          <th>Age</th>
-          <th>Start data</th>
-          <th>Salary</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr class="odd">
-          <td class="sorting_1">Airi Satou</td>
-          <td>Accountant</td>
-          <td>Tokyo</td>
-          <td>33</td>
-          <td>2008/11/28</td>
-          <td>$162,700</td>
-        </tr>
-        <tr class="even">
-          <td class="sorting_1">Angelica Ramons</td>
-          <td>CEO</td>
-          <td>london</td>
-          <td>47</td>
-          <td>2009/10/10</td>
-          <td>$162,700</td>
-        </tr>
-      </tbody>
-    </table>
-
+    </div>
   </div>
-</body>
 
+</body>
 </html>
