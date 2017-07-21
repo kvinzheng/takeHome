@@ -6,6 +6,8 @@ To run this app locally, run `open index.html` inside your terminal to start up 
 
 ## How I generate random the seed of the datasec
 
+I created 6 generators for name, position, city, age, date, and salary. Finally, I use a function called mockData() to generate an Object with random information inside. In my case, I use `200` as the size of my table. You can change the size if you prefer.
+
 ```javascript
 function mockData() {
   localStorage.clear();
