@@ -14,41 +14,57 @@
 <body>
   <div id="core_wrapper" class="dataTables_wrapper">
 
+    <div>
+      <div class="dataTable_length">
+        <label for="numberOfRow">
+          Show
+          <select id="numberOfRow" name="example_length" aria-controls="example" >
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50</option>
+            <option value="100">100</option>
+          </select>
+           entries
+        </label>
 
-    <div class="dataTable_length">
-      <label>
-        Show
-        <select name="example_length" aria-controls="example" >
-          <option value="10">10</option>
-          <option value="25">25</option>
-          <option value="50">50</option>
-          <option value="100">100</option>
-        </select>
-         entries
-      </label>
-    </div>
+      <div class="dataTables_filter">
+        <label>
+          Search:
+          <input type="text" name="search">
+        </label>
+      </div>
+
+  </div>
+
     <div class="datasection">
-      
+
       <div class=datatable>
-        <table>
-          <thead>
+        <table >
+          <thead id=head>
             <tr class="title">
-              <th>Name</th>
-              <th class='titlePosition'>Position</th>
-              <th>Office</th>
-              <th>Age</th>
-              <th>Start date</th>
-              <th>Salary</th>
+              <th class="nameSortAsc" onclick="javascript: this.classList.toggle('nameSortDesc');">Name</th>
+              <th id='titlePosition' class="positionSortAsc" onclick="javascript: this.classList.toggle('positonSortDesc');">Position</th>
+              <th class="OfficeSortAsc"  onclick="javascript: this.classList.toggle('OfficeSortDesc');">Office</th>
+              <th class="AgeSortAsc" onclick="javascript: this.classList.toggle('AgeSortDesc');">Age</th>
+              <th class="DateSortAsc" onclick="javascript: this.classList.toggle('DateSortDesc');">Start date</th>
+              <th class="SalarySortAsc" onclick="javascript: this.classList.toggle('SalarySortDesc');">Salary</th>
             </tr>
           </thead>
-          <tbody>
-            <script type="text/javascript" src=./loaddata.js></script>
+          <tbody id=myTable>
+
           </tbody>
         </table>
       </div>
-
+      <div>
+        <span>
+          <a class="paginate_button">1</a>
+          <a class="paginate_button">2</a>
+          <a class="paginate_button">3</a>
+          <a class="paginate_button">4</a>
+        </span>
+      </div>
     </div>
   </div>
-
+<script type="text/javascript" src=./loaddata.js></script>
 </body>
 </html>

@@ -26,7 +26,6 @@
 }
 
 .dataTables_wrapper .dataTable_length {
-  /*float: right !important;*/
   margin-left: 150px ;
   margin-bottom: 50px;
 }
@@ -56,12 +55,104 @@ thead tr th {
   width: 160px;
 }
 
+.nameSortAsc {
+  cursor: pointer ;
+  background-repeat: no-repeat ;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_asc.png');
+}
+.nameSortDesc{
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_desc.png');
+}
+
+.positionSortAsc {
+  cursor: pointer ;
+  background-repeat: no-repeat ;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_asc.png');
+}
+.positonSortDesc{
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_desc.png');
+}
+.OfficeSortAsc {
+  cursor: pointer ;
+  background-repeat: no-repeat ;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_asc.png');
+}
+.OfficeSortDesc{
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_desc.png');
+}
+
+.AgeSortAsc {
+  cursor: pointer ;
+  background-repeat: no-repeat ;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_asc.png');
+}
+.AgeSortDesc{
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_desc.png');
+}
+
+.DateSortAsc {
+  cursor: pointer ;
+  background-repeat: no-repeat ;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_asc.png');
+}
+.DateSortDesc {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_desc.png');
+}
+
+.SalarySortAsc {
+  cursor: pointer ;
+  background-repeat: no-repeat ;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_asc.png');
+}
+.SalarySortDesc {
+  cursor: pointer;
+  background-repeat: no-repeat;
+  background-position: center right;
+  background-image: url('https://www.datatables.net/media/images/sort_desc.png');
+}
+
+.dataTables_filter {
+  margin-right: 140px;
+  float: right;
+  text-align: right
+}
+
+.paginate_button{
+  box-sizing: border-box;
+  display: inline-block;
+  padding: 8px 16px 8px 16px;
+  margin-left: 2px;
+  cursor: pointer;
+  border: 2px solid black;
+  border-radius: 2px;
+}
 
 .title {
   border-bottom: 1px solid black;
 }
 
-.titlePosition {
+#titlePosition {
   width: 250px !important;
 }
 
