@@ -79,7 +79,7 @@ function mockData() {
   }
   localStorage.setItem('mockData', JSON.stringify(mockArr));
 };
-
+mockData();
 //generates a table and its input is an array of object
 function generateTableBody(data) {
   document.getElementById("myTable").innerHTML = "";
@@ -134,9 +134,10 @@ let filterSearch = document.getElementsByName("search")[0];
 let data = JSON.parse(localStorage.getItem('mockData'));
 //set up the initial data when the page get loaded
 let initialLoad = data.slice(0, 10);
-
 //generate a table when the page get loaded
 generateTableBody(initialLoad);
+
+
 //set up initial selected value;
 let selectedValue = '10';
 
@@ -559,7 +560,7 @@ function SalaryClickSort() {
 
 
 //generate mock data;
-mockData();
+// mockData();
 //run sorting algorithms for name, positions, office location, age, date, and salary
 nameClickSort();
 positionClickSort();
