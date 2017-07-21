@@ -171,6 +171,7 @@ numberOfRow.addEventListener("change", function(e) {
 
 function generatePage() {
   let pageSec = document.getElementById('pageNumber');
+  console.log('what is pageNumbers', pageNumbers);
   for (let i = 1; i <= pageNumbers; i++) {
     let aTag = document.createElement('a');
     aTag.classList.add('paginate_button');
@@ -179,7 +180,7 @@ function generatePage() {
   }
 }
 
-// generatePage();
+generatePage();
 
 let pageNumber1 = document.getElementsByClassName('paginate_button')[0];
 
@@ -189,16 +190,13 @@ let store = document.getElementsByClassName('paginate_button');
 
 function loadPageContent() {
   for (let i = 0; i < store.length; i++) {
-    let cur = store[i]
-
+    let cur = store[i];
 
     cur.addEventListener('click', function(e) {
-
       for (let j = 0; j < store.length; j++) {
-        store[i].style.backgroundColor = 'white';
+        store[j].style.backgroundColor = 'white';
       }
-
-      pageNumber1.style.backgroundColor = 'grey';
+      cur.style.backgroundColor = 'grey';
 
       if (selectedValue === '10') {
         let page = data.slice((i + 0) * 10, 10 * (i + 1));
@@ -216,7 +214,7 @@ function loadPageContent() {
     });
   }
 }
-
+loadPageContent()
 
 filterSearch.addEventListener('input', function(e) {
   let searchValue = this.value.toString()

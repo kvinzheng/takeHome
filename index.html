@@ -39,7 +39,7 @@
     <div class="datasection">
 
       <div class=datatable>
-        <table >
+        <table id=table>
           <thead id=head>
             <tr class="title">
               <th class="nameSortAsc" onclick="javascript: this.classList.toggle('nameSortDesc');">Name</th>
@@ -53,14 +53,23 @@
           <tbody id=myTable>
 
           </tbody>
+          <tfoot>
+            <tr>
+              <th>Name</th>
+              <th>Position</th>
+              <th>Office</th>
+              <th>Age</th>
+              <th>Start date</th>
+              <th>Salary</th>
+              <th></th>
+            </tr>
+          </tfoot>
+
         </table>
       </div>
-      <div>
+      <div id=pageSection>
         <span id ="pageNumber">
-          <a class="paginate_button">1</a>
-          <a class="paginate_button">2</a>
-          <a class="paginate_button">3</a>
-          <a class="paginate_button">4</a>
+          Pages 
         </span>
       </div>
     </div>
