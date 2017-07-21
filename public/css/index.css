@@ -13,27 +13,46 @@
 .datatable{
   display: inline-block;
 }
+
 .position {
   padding: 8px 10px 8px 10px;
   margin-right: 10px;
 }
+
 .tdStyle {
   padding: 8px 10px 8px 10px;
 }
 
-.dataTables_wrapper .dataTable_length {
-  margin-left: 150px ;
-  margin-bottom: 50px;
-  display: block
+.dataTable_length{
+  /*text-align: center;*/
+  display: inline-block;
+  padding-bottom:50px;
 }
 
+.dataTable_length label{
+
+  /*display: inline-block;*/
+  font-size: 110%;
+}
+
+.dataTables_wrapper .dataTable_length {
+  margin: 60px 60px 20px 60px;
+  display: block
+}
+.show {
+  float:left;
+  display:block
+}
+.show label {
+  font-weight: bold;
+}
 .sorting_1 {
   background-color: #f1f1f1;
   padding: 8px 10px 8px 10px;
 }
+
 #table {
   border-top: 1px solid black;
-  border-bottom: 1px solid black;
 }
 
 #table tr th{
@@ -46,8 +65,9 @@
 
 #pageSection {
   float:right;
-  margin-top: 20px;
-  margin-right: 100px;
+  margin-top: 50px;
+  margin-right: 80px;
+  margin-bottom: 100px;
 }
 
 table {
@@ -60,6 +80,10 @@ table tbody tr {
 
 table tbody tr td {
   text-align: center;
+}
+
+body{
+  background-color: #f2f8fc;
 }
 
 thead tr th {
@@ -148,6 +172,11 @@ thead tr th {
   float: right;
   text-align: right
 }
+.dataTables_filter label {
+  font-weight: bold;
+  float:left;
+  font-size: 120%;
+}
 
 .paginate_button{
   box-sizing: border-box;
@@ -155,12 +184,28 @@ thead tr th {
   padding: 8px 16px 8px 16px;
   margin-left: 2px;
   cursor: pointer;
-  border: 2px solid black;
+  border: 1px solid black;
   border-radius: 5px;
 }
 
+.navbar {
+  text-align: center;
+  background-color: #1976D2;
+  width: 100%;
+  top: 0px;
+  z-index: 100;
+  height: 64px;
+}
+
+.navbar span {
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  line-height: 64px;
+}
 .title {
   border-bottom: 1px solid black;
+  background-color: #E3F2FD;
 }
 
 #titlePosition {
