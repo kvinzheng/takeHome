@@ -2,12 +2,16 @@ let cities = [ 'Aberdeen', 'Abilene', 'Akron', 'Albany', 'Albuquerque', 'Alexand
 'Chula Vista', 'Cincinnati', 'Clarke County', 'Clarksville', 'Clearwater', 'Cleveland', 'College Station', 'Colorado Springs', 'Columbia', 'Columbus', 'Concord', 'Coral Springs', 'Corona', 'Corpus Christi'];
 
 let positions = [ 'Accountant', 'Chief Executive Officer (CEO)', 'Junior Technical Author' , 'Software Engineer' , 'Integration Specialist', 'Pre-Sales Support', 'Regional Director', 'Sales Assistant', 'Systems Administrator', 'Senior Marketing Designer', 'Support Engineer', 'Junior Javascript Developer', 'Regional Director', 'Senior Javascript Developer', 'Development Lead', 'Director', 'Secretary', 'Development Lead'];
+
 function makeName() {
   let text = '';
-  let possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+  let possible1 = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let possible2 = 'abcdefghijklmnopqrstuvwxyz';
+
+  text += possible1.charAt(Math.floor(Math.random() * possible1.length));
 
   for (var i = 0; i < 5; i++) {
-    text += possible.charAt(Math.floor(Math.random() * possible.length));
+    text += possible2.charAt(Math.floor(Math.random() * possible2.length));
   }
   return text;
 };
@@ -60,7 +64,7 @@ function makeDate() {
 function mockData() {
   localStorage.clear();
   let mockArr = [];
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < 200; i++) {
     let mockObj = {
       'name': makeName(),
       'position': makePosition(),
@@ -73,11 +77,9 @@ function mockData() {
   }
 
   localStorage.setItem('mockData', JSON.stringify(mockArr));
+};
 
-}
-
-mockData();
-
+// mockData();
 function generateTableBody(data) {
   document.getElementById("myTable").innerHTML = "";
   let tbody = document.querySelector("tbody");
@@ -131,84 +133,90 @@ let data = JSON.parse(localStorage.getItem('mockData'));
 let initialLoad = data.slice(0, 10);
 generateTableBody(initialLoad);
 
-let selectedValue = '10'
+let selectedValue = '10';
+
+let pageSection = document.getElementById("pageNumber");
+
+let pageNumbers = 10;
+let chunk;
 
 numberOfRow.addEventListener("change", function(e) {
   selectedValue = numberOfRow.options[numberOfRow.selectedIndex].value;
+  chunk = parseInt(selectedValue);
+  pageNumbers = 200/chunk;
+
+  let pageSec = document.getElementById('pageNumber');
+  pageSec.innerHTML = ''
+  generatePage();
+  loadPageContent();
+  console.log('pageNumbers', pageNumbers);
+
   let filterResult;
+
   if (selectedValue === '10') {
-    filterResult = data.slice(0, 10);
-    generateTableBody(filterResult);
+    let page = data.slice(0, 10);
+    generateTableBody(page);
   } else if (selectedValue === '25') {
-    filterResult = data.slice(0, 25);
-    generateTableBody(filterResult);
+    let page = data.slice(0, 25);
+    generateTableBody(page);
   } else if (selectedValue === '50') {
-    filterResult = data.slice(0, 50);
-    generateTableBody(filterResult);
+    let page = data.slice(0, 50);
+    generateTableBody(page);
   } else if (selectedValue === '100') {
-    filterResult = data.slice(0, 100);
-    generateTableBody(filterResult);
+    let page = data.slice(0 , 100);
+    generateTableBody(page);
   }
+
 });
 
+function generatePage() {
+  let pageSec = document.getElementById('pageNumber');
+  for (let i = 1; i <= pageNumbers; i++) {
+    let aTag = document.createElement('a');
+    aTag.classList.add('paginate_button');
+    aTag.innerText = i;
+    pageSec.appendChild(aTag);
+  }
+}
+
+// generatePage();
+
 let pageNumber1 = document.getElementsByClassName('paginate_button')[0];
-let pageNumber2 = document.getElementsByClassName('paginate_button')[1];
-let pageNumber3 = document.getElementsByClassName('paginate_button')[2];
-let pageNumber4 = document.getElementsByClassName('paginate_button')[3];
+
 let body = document.getElementsByTagName('body')[0];
 
 let store = document.getElementsByClassName('paginate_button');
 
-pageNumber1.addEventListener('click', function(e) {
+function loadPageContent() {
   for (let i = 0; i < store.length; i++) {
-    store[i].style.backgroundColor = 'white';
+    let cur = store[i]
+
+
+    cur.addEventListener('click', function(e) {
+
+      for (let j = 0; j < store.length; j++) {
+        store[i].style.backgroundColor = 'white';
+      }
+
+      pageNumber1.style.backgroundColor = 'grey';
+
+      if (selectedValue === '10') {
+        let page = data.slice((i + 0) * 10, 10 * (i + 1));
+        generateTableBody(page);
+      } else if (selectedValue === '25') {
+        let page = data.slice((0 + i) * 25, 25 * (i + 1));
+        generateTableBody(page);
+      } else if (selectedValue === '50') {
+        let page = data.slice((0 + i) * 25, 25 * (i + 1));
+        generateTableBody(page);
+      } else if (selectedValue === '100') {
+        let page = data.slice((0 + i) * 25, 25 * (i + 1));
+        generateTableBody(page);
+      }
+    });
   }
+}
 
-  pageNumber1.style.backgroundColor = 'grey';
-
-  if (selectedValue === '10') {
-    let page1 = data.slice(0, 10);
-    generateTableBody(page1);
-
-  }
-});
-
-pageNumber2.addEventListener('click', function(e) {
-  for (let i = 0; i < store.length; i++) {
-    store[i].style.backgroundColor = 'white';
-  }
-
-  pageNumber2.style.backgroundColor = 'grey';
-  if (selectedValue === '10') {
-    let page2 = data.slice(10, 20);
-    generateTableBody(page2);
-  }
-});
-
-pageNumber3.addEventListener('click', function(e) {
-  for (let i = 0; i < store.length; i++) {
-    store[i].style.backgroundColor = 'white';
-  }
-
-  pageNumber3.style.backgroundColor = 'grey';
-  if (selectedValue === '10') {
-    let page3 = data.slice(20, 30);
-    generateTableBody(page3);
-  }
-
-});
-
-pageNumber4.addEventListener('click', function(e) {
-  for (let i = 0; i < store.length; i++) {
-    store[i].style.backgroundColor = 'white';
-  }
-  pageNumber4.style.backgroundColor = 'grey';
-  if (selectedValue === '10') {
-    let page4 = data.slice(30, 40);
-    generateTableBody(page4);
-  }
-
-});
 
 filterSearch.addEventListener('input', function(e) {
   let searchValue = this.value.toString()
@@ -223,7 +231,7 @@ filterSearch.addEventListener('input', function(e) {
       }
     }
   }
-  // console.log('what is reuslt', result);
+
   generateTableBody(result);
 })
 
@@ -261,6 +269,9 @@ function nameClickSort() {
         // names must be equal
         return 0;
       });
+    }
+    for (let i = 0; i < store.length; i++) {
+      store[i].style.backgroundColor = 'white';
     }
     pageNumber1.style.backgroundColor = 'grey';
     generateTableBody(data.slice(0, selectedValue));
@@ -302,6 +313,9 @@ function positionClickSort() {
         return 0;
       });
     }
+    for (let i = 0; i < store.length; i++) {
+      store[i].style.backgroundColor = 'white';
+    }
     pageNumber1.style.backgroundColor = 'grey';
     generateTableBody(data.slice(0, selectedValue));
   });
@@ -342,7 +356,10 @@ function OfficeClickSort() {
         return 0;
       });
     }
-
+    for (let i = 0; i < store.length; i++) {
+      store[i].style.backgroundColor = 'white';
+    }
+    pageNumber1.style.backgroundColor = 'grey';
     generateTableBody(data.slice(0, selectedValue));
   });
 }
@@ -361,6 +378,9 @@ function AgeClickSort() {
       data = data.sort(function(a, b) {
         return b.Age - a.Age;
       });
+    }
+    for (let i = 0; i < store.length; i++) {
+      store[i].style.backgroundColor = 'white';
     }
     pageNumber1.style.backgroundColor = 'grey';
     generateTableBody(data.slice(0, selectedValue));
@@ -383,10 +403,14 @@ function DateClickSort() {
         return Date.parse(b['Start date']) - Date.parse(a['Start date']);
       });
     }
+    for (let i = 0; i < store.length; i++) {
+      store[i].style.backgroundColor = 'white';
+    }
     pageNumber1.style.backgroundColor = 'grey';
     generateTableBody(data.slice(0, selectedValue));
   });
 }
+
 function SalaryClickSort() {
   let date = document.getElementsByClassName("SalarySortAsc")[0];
   let toggle = true;;
@@ -421,11 +445,14 @@ function SalaryClickSort() {
         return ele;
       });
     }
+    for (let i = 0; i < store.length; i++) {
+      store[i].style.backgroundColor = 'white';
+    }
     pageNumber1.style.backgroundColor = 'grey';
     generateTableBody(salaryData.slice(0, selectedValue));
   });
 }
-
+mockData();
 // generateTableBody(data);
 nameClickSort();
 positionClickSort();
