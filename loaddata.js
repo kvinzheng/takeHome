@@ -145,6 +145,9 @@ let pageNumbers = 10;
 
 //addEventListener to the select value, 10, 25, 50, 100
 numberOfRow.addEventListener("change", function(e) {
+  //reset search function value
+  filterSearch.value ='';
+  //getting input value from search box
   selectedValue = numberOfRow.options[numberOfRow.selectedIndex].value;
   let chunk = parseInt(selectedValue);
   pageNumbers = 200 / chunk;
@@ -249,7 +252,7 @@ filterSearch.addEventListener('input', function(e) {
       }
     }
   }
-  generateTableBody(result);
+  generateTableBody(result.slice(0, selectedValue));
 })
 
 //sort name;

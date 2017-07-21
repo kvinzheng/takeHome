@@ -10,10 +10,6 @@
   text-align: center;
 }
 
-/*.dataTable_length{
-  margin-bottom : 40px;
-  margin-left: 150px;
-}*/
 .datatable{
   display: inline-block;
 }
@@ -28,6 +24,7 @@
 .dataTables_wrapper .dataTable_length {
   margin-left: 150px ;
   margin-bottom: 50px;
+  display: block
 }
 
 .sorting_1 {
