@@ -67,7 +67,7 @@
   float:right;
   margin-top: 50px;
   margin-right: 80px;
-  margin-bottom: 100px;
+  margin-bottom: 50px;
 }
 
 table {
@@ -197,12 +197,39 @@ thead tr th {
   height: 64px;
 }
 
+.bottom {
+  display: block;
+  background-color: #1976D2;
+  height: 60px;
+  margin-top:150px;
+  padding-top: 50px;
+  z-index: 100;
+  top: 0px;
+  width: 100%;
+}
+
 .navbar span {
   color: #fff;
   font-size: 15px;
   font-family: "Roboto", sans-serif;
   line-height: 64px;
 }
+
+.nav-wrapper span{
+    font-size: 135%;
+}
+
+.bottom a {
+  Text-Decoration: None;
+  Cursor: pointer;
+  float: right;
+  color: #fff;
+  font-size: 15px;
+  font-family: "Roboto", sans-serif;
+  margin-right: 60px;
+  margin-left: 20px;
+}
+
 .title {
   border-bottom: 1px solid black;
   background-color: #E3F2FD;
